@@ -1,16 +1,13 @@
 <template>
   <AppHeader />
   <div class="w-full flex">
-    <!-- <ToDoList /> -->
-    <Calendar />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import AppHeader from "./components/AppHeader"
-// import ToDoList from './components/ToDoList.vue';
-import Calendar from './components/Calendar'
 export default {
-  components: {AppHeader, Calendar},
+  components: {AppHeader},
 };
 </script>

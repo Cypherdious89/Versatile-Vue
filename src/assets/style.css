@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 .fa-trash {
-    color: red;
+    color: #ed4444;
+}
+
+.slider{
+    height: 400px;
 }
