@@ -9,6 +9,7 @@
       >
       {{item.title}}
       </router-link>
+      <button class="float-right text-lg mx-4" @click="$emit('open-login-modal')">Login</button>
   </nav>
 </template>
 
@@ -21,7 +22,6 @@ export default {
         {title: "Calendar", to: "/calendar"},
         {title: "Markdown", to: "/markdown"},
         {title: "Slider Carousel", to: "/slider"},
-
       ]
     }
   }
