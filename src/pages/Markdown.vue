@@ -3,7 +3,7 @@
       <h1 class="w-full text-center text-3xl my-4">Markdown App</h1>
       <section class="flex m-auto w-10/12 h-screen">
           <article class="w-1/2 border">
-            <textarea class="h-full w-full p-1" :value="text" @input="update"></textarea>
+            <textarea class="h-full w-full p-1" :value="text" @input="update" ref="MarkdownTextArea"></textarea>
           </article>
           <article class="w-1/2 border bg-gray-100" v-html="markedText"></article>
       </section>
@@ -24,6 +24,9 @@ export default {
         markedText(){
             return marked(this.text);
         }
+    },
+    mounted(){
+        this.$refs.MarkdownTextArea.focus()
     },
     methods:{
         update(e){

@@ -9,12 +9,16 @@
       >
       {{item.title}}
       </router-link>
-      <button class="float-right text-lg mx-4" @click="$emit('open-login-modal')">Login</button>
+      <button v-if="isLoggedIn" class="float-right text-lg mx-4" @click="logout">Logout</button>
+      <button v-else class="float-right text-lg mx-4" @click="$emit('open-login')">Login</button>
+
   </nav>
 </template>
 
 <script>
+import firebase from "../utilities/firebase"
 export default {
+  props: ["isLoggedIn"],
   data(){
     return {
       list:[
@@ -23,6 +27,14 @@ export default {
         {title: "Markdown", to: "/markdown"},
         {title: "Slider Carousel", to: "/slider"},
       ]
+    }
+  },
+  methods: {
+    logout(){
+      firebase.auth().signOut().catch((e) => {
+        console.log(e);
+      });
+
     }
   }
 }

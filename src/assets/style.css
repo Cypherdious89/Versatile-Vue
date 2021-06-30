@@ -9,3 +9,7 @@
 .slider{
     height: 400px;
 }
+
+input, textarea {
+    outline-color: #2196f3;
+}

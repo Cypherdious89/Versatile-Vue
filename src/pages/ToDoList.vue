@@ -10,7 +10,10 @@
         </li>
       </ul>
       <form @submit.prevent="addItem" class="flex justify-between mt-8">
-        <input class="border rounded border-black p-1" type="text" v-model="newItem" placeholder="Type name here">
+        <input 
+        class="border rounded border-black p-1" 
+        type="text" v-model="newItem" 
+        placeholder="Type name here" ref="taskInput">
         <button class="border rounded text-sm text-white bg-blue-600 px-2 py-1" type="submit">Add Task</button>
       </form>
     </div>
@@ -33,6 +36,9 @@ export default {
         {name: "Task 4"}
       ],
     };
+  },
+  mounted(){
+    this.$refs.taskInput.focus()
   },
   methods: {
     addItem(){
