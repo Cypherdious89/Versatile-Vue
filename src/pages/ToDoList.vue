@@ -20,36 +20,38 @@
 </template>
 
 <script>
+import { computed, onMounted, ref } from "vue";
 export default {
-    computed: {
-    itemCount(){
-      return this.listItems.length;
-    },
-  },
-  data(){
-    return{
-      newItem: "",
-      listItems: [
+  setup(){
+    const taskInput = ref("");
+    const newItem = ref("");
+    const listItems = ref([
         {name: "Task 1"},
         {name: "Task 2"},
         {name: "Task 3"},
         {name: "Task 4"}
-      ],
-    };
-  },
-  mounted(){
-    this.$refs.taskInput.focus()
-  },
-  methods: {
-    addItem(){
-      if(this.newItem !== ""){
-        this.listItems.unshift({name: this.newItem}); 
-        this.newItem="";
+      ]);
+
+    const itemCount = computed({
+      get: () => listItems.value.length
+    })
+
+    function addItem(){
+      if(newItem.value !== ""){
+        listItems.value.unshift({name: newItem.value}); 
+        newItem.value="";
       }
-    },
-    remove(index){
-      this.listItems = this.listItems.filter((item, i) => i != index);
     }
+
+    function remove(index){
+      listItems.value = listItems.value.filter((item, i) => i != index);
+    }
+
+    onMounted(() => {
+      taskInput.value.focus();
+    })
+
+    return {listItems, newItem, remove, addItem, taskInput, itemCount};
   },
 }
 </script>
