@@ -16,6 +16,9 @@
 
 <script>
 export default {
+  mounted(){
+    console.log(this.$store.state);
+  },
   data(){
     return {
       list:[
@@ -24,6 +27,8 @@ export default {
         {title: "Markdown", to: "/markdown"},
         {title: "Slider Carousel", to: "/slider"},
         {title: "Calculator", to: "/calculator"},
+        {title: "Re-Useable Modal", to: "/reuse-modal"},
+        {title: "Real-Time Chat App", to: "/chat"},
       ]
     }
   }

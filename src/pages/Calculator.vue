@@ -34,7 +34,7 @@
 
 <script>
 import {ref} from 'vue';
-import useWindowEvent from "../utilities/composition/useWindowEvent";
+import useWindowEvent from "../utilities/hooks/useWindowEvent";
 export default {
     setup() {
     const operations = ["+", "-", "*", "/"];

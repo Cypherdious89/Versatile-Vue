@@ -12,12 +12,12 @@
 
 <script>
 import marked from "marked";
-import deBounce from "../utilities/mixins/debounce";
+import useDebounce from "../utilities/hooks/useDebounce"
 export default {
-    mixins:[deBounce],
     data(){
         return {
-            text: ""
+            text: "**this is markdown app**",
+            deBounce: ""
         }
     },
     computed:{
@@ -26,8 +26,10 @@ export default {
         }
     },
     mounted(){
+        this.deBounce = useDebounce()
         this.$refs.MarkdownTextArea.focus()
     },
+
     methods:{
         update(e){
             const task = () => {this.text = e.target.value};
