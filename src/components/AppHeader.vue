@@ -29,7 +29,7 @@ export default {
         {title: "Modals", to: "/reuse-modal"},
         {title: "Chat", to: "/chat"},
         {title: "User Crud", to: "/user-crud"},
-
+        {title: "Tensorflow", to: "/tensorflow"},
       ],
     }
   },
