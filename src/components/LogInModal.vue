@@ -1,5 +1,5 @@
 <template>
-    <!-- <div v-if="isLoginOpen"> -->
+    <div v-if="isLoginOpen">
         <section
             @click="close" 
             class="z-20 h-screen w-screen bg-gray-500 fixed top-0 opacity-50"
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-    <!-- </div> -->
+    </div>
 </template>
 
 <script>
@@ -27,10 +27,15 @@ import GoogleLogIn from "../components/auth/GoogleLogin"
 import UserLogIn from "../components/auth/UserLogin"
 export default {
     components: {GoogleLogIn, UserLogIn},
+    computed: {
+        isLoginOpen(){
+            return this.$store.state.isLoginOpen;
+        },
+    },
     emits: ["close-login"],
     methods: {
         close(){
-            this.$emit('close-login');
+            this.$store.commit("setLoginModal", false)
         },
     }
 }
